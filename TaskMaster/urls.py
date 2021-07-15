@@ -24,6 +24,9 @@ router = DefaultRouter()
 from boards.views import BoardViewSet
 router.register('boards', BoardViewSet)
 
+from cards.views import CardViewSet
+router.register('cards', CardViewSet)
+
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 
 urlpatterns = [

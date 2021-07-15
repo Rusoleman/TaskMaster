@@ -29,5 +29,6 @@ class Card(models.Model):
 
     member = models.ManyToManyField(
         Member,
+        blank=True,
         related_name='cards_member'
     )
