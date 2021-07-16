@@ -15,6 +15,7 @@ class Board(models.Model):
     # ═════════ Relations ═════════
     favorite = models.ManyToManyField(
         User,
+        blank=True,
         related_name='boards_favorite_user'
     )
     owner = models.ForeignKey(
@@ -24,5 +25,6 @@ class Board(models.Model):
     )
     members = models.ManyToManyField(
         Member,
+        blank=True,
         related_name='boards_member'
     )

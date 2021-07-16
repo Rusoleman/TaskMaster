@@ -17,7 +17,15 @@ from django.contrib import admin
 from django.urls import path
 
 from rest_framework.routers import DefaultRouter
+
 router = DefaultRouter()
+
+# ══════════════ Viewset's ════════════════
+from boards.views import BoardViewSet
+router.register('boards', BoardViewSet)
+
+from cards.views import CardViewSet
+router.register('cards', CardViewSet)
 
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 
