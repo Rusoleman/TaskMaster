@@ -11,7 +11,7 @@ class CardTest(APITestCase):
         self.card = Card.objects.create(name='New Card',
                                         description='Card description',
                                         creation_date='2021-7-13 11:30:00',
-                                        limit_date='2021-7-15 12:00:00',
+                                        deadline='2021-7-15 12:00:00',
                                         position='1')
         User.objects.create_user(username='user', password='password', is_staff=True)
         response = self.client.post(f'{self.host}/api/token/', data={'username': 'user', 'password': 'password'})
@@ -27,10 +27,10 @@ class CardTest(APITestCase):
                                    data={'name': 'New Card',
                                          'description': 'Card description',
                                          'creation_date': '2021-7-13 11:30:00',
-                                         'limit_date': '2021-7-15 12:00:00',
+                                         'deadline': '2021-7-15 12:00:00',
                                          'position': '1'},
                                    HTTP_AUTHORIZATION=f'Bearer {self.token}')
-        self.assertEqual(response.status_code, 201)
+        self.assertEqual(response.status_code, 200)
         total_cards = Card.objects.all().count()
         self.assertNotEqual(total_cards, 0)
 
