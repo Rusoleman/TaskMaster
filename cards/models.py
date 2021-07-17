@@ -8,7 +8,7 @@ class Card(models.Model):
     name = models.CharField(max_length=40, default="New Card")
     description = models.CharField(max_length=255)
     creation_date = models.DateTimeField()
-    limit_date = models.DateTimeField()
+    deadline = models.DateTimeField()
     position = models.IntegerField()
 
     def __str__(self):
@@ -31,4 +31,10 @@ class Card(models.Model):
         Member,
         blank=True,
         related_name='cards_member'
+    )
+
+    manager = models.ManyToManyField(
+        Member,
+        blank=True,
+        related_name='cards_member_manager'
     )
