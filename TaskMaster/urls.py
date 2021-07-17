@@ -27,6 +27,9 @@ router.register('boards', BoardViewSet)
 from cards.views import CardViewSet
 router.register('cards', CardViewSet)
 
+from lists.views import ListViewSet
+router.register('lists', ListViewSet)
+
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 
 urlpatterns = [
